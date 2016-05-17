@@ -1,5 +1,6 @@
 class Rect
- new: (x,y,w,h) =>
+ new: (id,x,y,w,h) =>
+  @id = id
   @x = x
   @y = y
   @w = w
@@ -25,13 +26,15 @@ class Rect
 
  isColliding: (e) =>
   e = e or Rect()
-  if e.x or e.y == @x or @y then
-    print "#{e.__name} is colliding with #{@.__name}."
+  if e\top! or e\bottom! or e\right! or e\left! == @\top! or @\bottom! or @\right! or @\left! then
+    print "#{e.id} is colliding with #{@id}."
+  else 
+    print "All clear"
 
 
-a = Rect(3,6,7,8)
-b = Rect(5, 6, 3, 88)
+a = Rect("a", 0, 0, 0, 0)
+b = Rect("b", 5, 6, 3, 88)
 
 print(a\getPosition!)
 
-a\isColliding b
+b\isColliding a
