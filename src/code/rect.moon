@@ -1,4 +1,5 @@
-export class Rect
+export *
+class Rect
   new: (id,x,y,w,h) =>
     @id = id
     @x = x
